@@ -1,0 +1,33 @@
+# Godot-specific
+.import/
+*.import
+*.tmp
+*.log
+*.mono/
+*.godot/
+/android/
+
+# Builds / exports
+.export/
+*.apk
+*.aab
+*.xcodeproj/
+*.xcworkspace/
+*.app/
+*.exe
+*.pck
+*.zip
+*.pdb
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Godot editor backups
+*.backup
+*.swp
+*.swo
+
+# Export presets
+export_presets.cfg

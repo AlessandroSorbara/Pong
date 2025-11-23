@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpwvpvnwsyrm6"]
+
+[ext_resource type="PackedScene" uid="uid://c7oqcxfmhw1ua" path="res://scenes/objects/paddle/paddle.tscn" id="1_t5v0i"]
+[ext_resource type="Script" uid="uid://dbr5dmoo3hw8o" path="res://scenes/objects/paddle/cpu.gd" id="2_rq7hh"]
+
+[node name="CPU" instance=ExtResource("1_t5v0i")]
+script = ExtResource("2_rq7hh")
+
+[node name="Sprite2D" parent="." index="1"]
+modulate = Color(0.6862745, 0.05882353, 0.21568628, 1)

@@ -1,0 +1,175 @@
+[gd_scene load_steps=11 format=3 uid="uid://b821myv7hqira"]
+
+[ext_resource type="Script" uid="uid://dtit4chiy0my1" path="res://scenes/screens/game/game.gd" id="1_2tqw5"]
+[ext_resource type="PackedScene" uid="uid://w0e1cb1656a1" path="res://scenes/objects/ui/ui.tscn" id="2_ndvsh"]
+[ext_resource type="PackedScene" uid="uid://b56ogifja0380" path="res://scenes/objects/paddle/human.tscn" id="3_d0i4o"]
+[ext_resource type="FontFile" uid="uid://b5ef1nkej4i8q" path="res://resources/fonts/MotionControl-Bold.otf" id="3_ndvsh"]
+[ext_resource type="PackedScene" uid="uid://cpwvpvnwsyrm6" path="res://scenes/objects/paddle/cpu.tscn" id="4_gpd6r"]
+[ext_resource type="PackedScene" uid="uid://db27khuarbhe8" path="res://scenes/objects/ball/ball.tscn" id="5_vkwk1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2fmo"]
+size = Vector2(1280, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3cfh"]
+size = Vector2(1280, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6q06x"]
+size = Vector2(25, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow5a4"]
+size = Vector2(25, 720)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_2tqw5")
+
+[node name="UI" parent="." instance=ExtResource("2_ndvsh")]
+layer = -1
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+custom_minimum_size = Vector2(300, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ndvsh")
+theme_override_font_sizes/font_size = 32
+text = "RESUME"
+
+[node name="Quit" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ndvsh")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[node name="WinMenu" type="CanvasLayer" parent="."]
+process_mode = 2
+
+[node name="Panel" type="Panel" parent="WinMenu"]
+custom_minimum_size = Vector2(300, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="WinMenu/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ndvsh")
+theme_override_font_sizes/font_size = 32
+text = "..."
+horizontal_alignment = 1
+
+[node name="Quit" type="Button" parent="WinMenu/Panel/VBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ndvsh")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Top" type="StaticBody2D" parent="Walls"]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Top"]
+position = Vector2(640, -5)
+shape = SubResource("RectangleShape2D_k2fmo")
+
+[node name="Bottom" type="StaticBody2D" parent="Walls"]
+position = Vector2(0, 720)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom"]
+position = Vector2(640, 5)
+shape = SubResource("RectangleShape2D_l3cfh")
+
+[node name="Exits" type="Node2D" parent="."]
+
+[node name="Left" type="Area2D" parent="Exits"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Left"]
+position = Vector2(-12.5, 360)
+shape = SubResource("RectangleShape2D_6q06x")
+
+[node name="Right" type="Area2D" parent="Exits"]
+position = Vector2(1280, 0)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exits/Right"]
+position = Vector2(12.5, 360)
+shape = SubResource("RectangleShape2D_ow5a4")
+
+[node name="Human" parent="." instance=ExtResource("3_d0i4o")]
+position = Vector2(186, 312)
+
+[node name="CPU" parent="." instance=ExtResource("4_gpd6r")]
+position = Vector2(1098, 324)
+
+[node name="Ball" parent="." instance=ExtResource("5_vkwk1")]
+position = Vector2(638, 322)
+
+[node name="BallRespawnCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="WinMenu/Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="body_entered" from="Exits/Left" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Exits/Right" to="." method="_on_right_body_entered"]
+[connection signal="timeout" from="BallRespawnCooldown" to="." method="_on_ball_respawn_cooldown_timeout"]
