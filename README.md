@@ -9,8 +9,5 @@ This project recreates the classic Pong game with basic controls and gameplay.
 - The goal is to score 10 points by making the ball pass the opponent's paddle.
 - Only singleplayer mode available right now.
 
-## How to Run
-...
-
 ## License
 This project is for learning purposes and can be used freely.
