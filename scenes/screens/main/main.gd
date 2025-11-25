@@ -12,14 +12,9 @@ func handle_sfx() -> void:
 		sfx.text = "SFX: ON"
 
 
-func _on_singleplayer_pressed() -> void:
+func _on_play_pressed() -> void:
 	AudioManager.play("button")
 	Navigator.load_scene(Navigator.SCREEN.DIFFICULTY)
-
-
-func _on_multiplayer_pressed() -> void:
-	AudioManager.play("button")
-	print("Coming Soon!")
 
 
 func _on_sfx_pressed() -> void:

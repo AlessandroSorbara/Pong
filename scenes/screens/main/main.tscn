@@ -33,17 +33,11 @@ theme_override_font_sizes/font_size = 200
 text = "PONG"
 horizontal_alignment = 1
 
-[node name="Singleplayer" type="Button" parent="UI/CenterContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="UI/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0udfb")
 theme_override_font_sizes/font_size = 32
-text = "SINGLEPLAYER"
-
-[node name="Multiplayer" type="Button" parent="UI/CenterContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0udfb")
-theme_override_font_sizes/font_size = 32
-text = "MULTIPLAYER"
+text = "PLAY"
 
 [node name="SFX" type="Button" parent="UI/CenterContainer/VBoxContainer"]
 modulate = Color(0.0020170636, 0.28787804, 0.9985823, 1)
@@ -59,7 +53,6 @@ theme_override_fonts/font = ExtResource("1_0udfb")
 theme_override_font_sizes/font_size = 32
 text = "EXIT"
 
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/CenterContainer/VBoxContainer/SFX" to="." method="_on_sfx_pressed"]
 [connection signal="pressed" from="UI/CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
